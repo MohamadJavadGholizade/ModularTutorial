@@ -13,9 +13,10 @@ public class TutorialButtonStep : TutorialStepBase
     [SerializeField] private int completionPressCount;
     private int _currentPressCount;
 
+    private bool _pressActionPressed;
     private bool _holdActionPressed = true;
 
-    private void OnEnable()
+    private void Awake()
     {
         if (holdAction != null)
         {
@@ -28,7 +29,7 @@ public class TutorialButtonStep : TutorialStepBase
     }
 
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         if (holdAction != null)
         {
@@ -40,23 +41,43 @@ public class TutorialButtonStep : TutorialStepBase
         pressAction.canceled -= OnPressActionCancel;
     }
 
+    public override void StartStep()
+    {
+        base.StartStep();
+        pressAction.Enable();
+        holdAction.Enable();
+    }
+
+    public override void CompleteStep()
+    {
+        base.CompleteStep();
+        pressAction.Disable();
+        holdAction.Disable();
+    }
+
     private void OnPressActionStart(InputAction.CallbackContext context)
     {
-        _currentPressCount++;
-        if (_currentPressCount >= completionPressCount)
+        _pressActionPressed = true;
+
+        if (_holdActionPressed)
         {
-            CompleteStep();
+            _currentPressCount++;
+            if (_currentPressCount >= completionPressCount)
+            {
+                CompleteStep();
+            }
         }
     }
 
     private void OnPressActionCancel(InputAction.CallbackContext context)
     {
-        
+        _pressActionPressed = false;
     }
     
     private void OnHoldActionStart(InputAction.CallbackContext context)
     {
-        _holdActionPressed = true;
+        if (!_pressActionPressed)
+            _holdActionPressed = true;
     }
 
     private void OnHoldActionCancel(InputAction.CallbackContext context)
