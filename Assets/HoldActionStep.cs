@@ -38,12 +38,14 @@ public class HoldActionStep : TutorialStepBase
     {
         base.StartStep();
         grabInteractable.activated.AddListener(OnHold);
+        grabInteractable.deactivated.AddListener(OnRelease);
     }
 
     public override void CompleteStep()
     {
         base.CompleteStep();
-        grabInteractable.activated.RemoveListener(OnRelease);
+        grabInteractable.activated.RemoveListener(OnHold);
+        grabInteractable.deactivated.RemoveListener(OnRelease);
     }
 
     private void OnHold(ActivateEventArgs args)
@@ -51,7 +53,7 @@ public class HoldActionStep : TutorialStepBase
         _holding = true;
     }
 
-    private void OnRelease(ActivateEventArgs args)
+    private void OnRelease(DeactivateEventArgs args)
     {
         _holding = false;
         _currentPassedTime = 0f;

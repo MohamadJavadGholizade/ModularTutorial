@@ -7,8 +7,9 @@ using UnityEngine.InputSystem;
 
 public class TutorialButtonStep : TutorialStepBase
 {
-    public InputAction holdAction;
-    public InputAction pressAction;
+    [SerializeField] private ActionBinding actionBinding;   
+    private InputAction _holdAction = new InputAction();
+    private InputAction _pressAction = new InputAction();
 
     [SerializeField] private int completionPressCount;
     private int _currentPressCount;
@@ -16,43 +17,54 @@ public class TutorialButtonStep : TutorialStepBase
     private bool _pressActionPressed;
     private bool _holdActionPressed = true;
 
+    private const string XRControllerPath = "<XRController>/";
+    
     private void Awake()
     {
-        if (holdAction != null)
+        switch (actionBinding)
         {
-            holdAction.started += OnHoldActionStart;
-            holdAction.canceled += OnHoldActionCancel;
+            case ActionBinding.DirectGrab:
+            {
+                _pressAction.AddBinding(XRControllerPath + ControllerButtonName.Grip);
+                break;
+            }
+            case ActionBinding.DirectActivate:
+            {
+                _holdAction.AddBinding(XRControllerPath + ControllerButtonName.Grip);
+                _pressAction.AddBinding(XRControllerPath + ControllerButtonName.Trigger);
+                break;
+            }
+        }
+        
+        if (_holdAction != null)
+        {
+            _holdAction.started += OnHoldActionStart;
+            _holdAction.canceled += OnHoldActionCancel;
         }
 
-        pressAction.started += OnPressActionStart;
-        pressAction.canceled += OnPressActionCancel;
-    }
-
-
-    private void OnDestroy()
-    {
-        if (holdAction != null)
-        {
-            holdAction.started -= OnHoldActionStart;
-            holdAction.canceled -= OnHoldActionCancel;
-        }
-
-        pressAction.started -= OnPressActionStart;
-        pressAction.canceled -= OnPressActionCancel;
+        _pressAction.started += OnPressActionStart;
+        _pressAction.canceled += OnPressActionCancel;
     }
 
     public override void StartStep()
     {
         base.StartStep();
-        pressAction.Enable();
-        holdAction.Enable();
+        _pressAction.Enable();
+        _holdAction.Enable();
     }
 
     public override void CompleteStep()
     {
         base.CompleteStep();
-        pressAction.Disable();
-        holdAction.Disable();
+        
+        if (_holdAction != null)
+        {
+            _holdAction.started -= OnHoldActionStart;
+            _holdAction.canceled -= OnHoldActionCancel;
+        }
+
+        _pressAction.started -= OnPressActionStart;
+        _pressAction.canceled -= OnPressActionCancel;
     }
 
     private void OnPressActionStart(InputAction.CallbackContext context)
@@ -84,4 +96,11 @@ public class TutorialButtonStep : TutorialStepBase
     {
         _holdActionPressed = false;
     }
+}
+
+
+public enum ActionBinding
+{
+    DirectGrab,
+    DirectActivate
 }
