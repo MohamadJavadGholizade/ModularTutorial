@@ -18,8 +18,6 @@ public class TutorialButtonStep : TutorialStepBase
     private bool _holdActionPressed = true;
 
     private const string XRControllerPath = "<XRController>/";
-   [SerializeField] private ControllerAffordance _controllerAffordance;
-    
     
     private void Awake()
     {
@@ -46,9 +44,6 @@ public class TutorialButtonStep : TutorialStepBase
 
         _pressAction.started += OnPressActionStart;
         _pressAction.canceled += OnPressActionCancel;
-        
-        
-        
     }
 
     public override void StartStep()
@@ -56,7 +51,6 @@ public class TutorialButtonStep : TutorialStepBase
         base.StartStep();
         _pressAction.Enable();
         _holdAction.Enable();
-        _controllerAffordance.ActivateControllerUI(actionBinding);
     }
 
     public override void CompleteStep()
@@ -101,16 +95,6 @@ public class TutorialButtonStep : TutorialStepBase
     private void OnHoldActionCancel(InputAction.CallbackContext context)
     {
         _holdActionPressed = false;
-    }
-
-    private void Reset()
-    {
-        SetReferences();
-    }
-
-    private void SetReferences()
-    {
-        _controllerAffordance = FindObjectOfType<ControllerAffordance>();
     }
 }
 
