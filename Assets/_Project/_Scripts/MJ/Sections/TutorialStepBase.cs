@@ -9,7 +9,6 @@ namespace MJUtilities
         [SerializeField] private bool isActive;
         [SerializeField] private bool isDone;
 
-
         public virtual void StartStep()
         {
             Debug.Log("Step Started!");

@@ -12,19 +12,25 @@ namespace MJUtilities
         
         [SerializeField] private int currentStepIndex;
         [SerializeField] private List<TutorialStepBase> tutorialStepsList = new List<TutorialStepBase>();
+        [SerializeField] private TutorialButtonStep tutorialButtonStep;
 
         private void OnDisable()
         {
             ActionContainer.OnStepComplete -= CompleteCurrentStep;
         }
-      
+        
+        [ContextMenu(nameof(StartFirstStep))]
         public void StartFirstStep()
         {
             SetActiveStatus(true);
-            currentStepIndex = 0;
             ActionContainer.OnStepComplete += CompleteCurrentStep;
-
-            if (tutorialStepsList.Count > 0)
+            
+            if (tutorialButtonStep)
+            {
+                tutorialButtonStep.StartStep();
+                currentStepIndex = -1;
+            }
+            else if (tutorialStepsList.Count > 0)
             {
                 Debug.Log("index = " + currentStepIndex);
                 tutorialStepsList[currentStepIndex].StartStep();
