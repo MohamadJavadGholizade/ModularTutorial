@@ -41,7 +41,6 @@ public class OnButtonPress : MonoBehaviour
     private void Pressed(InputAction.CallbackContext context)
     {
         OnPress.Invoke();
-        Debug.Log("Hello");
     }
 
     private void Released(InputAction.CallbackContext context)
