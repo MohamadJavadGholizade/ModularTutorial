@@ -16,8 +16,10 @@ public class ControllerButtonGuide : MonoBehaviour
             {
                 buttonData.buttonModel.GetComponent<HighlightEffect>().highlighted = true;
                 buttonData.tooltip.enabled = true;
-                buttonData.tooltip.GetComponentInChildren<MeshRenderer>().enabled = true;
-                buttonData.tooltipCurve.enabled = true;
+                if (buttonData.tooltip.GetComponentInChildren<MeshRenderer>() != null) 
+                    buttonData.tooltip.GetComponentInChildren<MeshRenderer>().enabled = true;
+                if (buttonData.tooltipCurve != null) 
+                    buttonData.tooltipCurve.enabled = true;
                 return;
             }
         }
@@ -29,8 +31,10 @@ public class ControllerButtonGuide : MonoBehaviour
         {
             buttonData.buttonModel.GetComponent<HighlightEffect>().highlighted = false;
             buttonData.tooltip.enabled = false;
-            buttonData.tooltip.GetComponentInChildren<MeshRenderer>().enabled = false;
-            buttonData.tooltipCurve.enabled = false;
+            if (buttonData.tooltip.GetComponentInChildren<MeshRenderer>() != null) 
+                buttonData.tooltip.GetComponentInChildren<MeshRenderer>().enabled = false;
+            if (buttonData.tooltipCurve != null) 
+                buttonData.tooltipCurve.enabled = false;
         }
     }
 }
@@ -47,5 +51,6 @@ public class ControllerButtonData
 public enum ControllerButtonName
 {
     Grip,
-    Trigger
+    Trigger,
+    Primary2DAxis
 }
