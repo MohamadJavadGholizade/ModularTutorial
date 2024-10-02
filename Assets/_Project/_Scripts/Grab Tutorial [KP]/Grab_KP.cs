@@ -1,37 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using MJUtilities;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class GrabTuto : TutorialStepBase
+public class Grab_KP : TutorialStepBase
 {
-    private int countObjects=0;
-    [SerializeField] private GameObject m_GameObject;
-    
+    private int countObject = 0;
+    [SerializeField] private GameObject objects;
+
     public override void StartStep()
     {
         base.StartStep();
-        m_GameObject.SetActive(true);
-        
+        objects.SetActive(true);
     }
 
     public override void CompleteStep()
     {
-        
         base.CompleteStep();
+        
     }
-
-
+    
     void OnCollisionEnter(Collision collision)
     {
-        
         if (collision.gameObject.CompareTag("Destroyable"))
         {
-            countObjects ++;
+            countObject++; 
+            Debug.Log(countObject);
             Destroy(collision.gameObject);
         }
-        if(countObjects==3)
+        if (countObject == 3)
             CompleteStep();
     }
 }
