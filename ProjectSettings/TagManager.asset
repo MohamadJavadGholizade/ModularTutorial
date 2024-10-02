@@ -8,6 +8,7 @@ TagManager:
   - Destroyable
   - Left Controller
   - Right Controller
+  - Walk
   layers:
   - Default
   - TransparentFX
