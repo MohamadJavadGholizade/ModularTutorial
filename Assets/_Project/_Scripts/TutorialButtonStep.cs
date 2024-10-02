@@ -14,6 +14,7 @@ public class TutorialButtonStep : TutorialStepBase
     [SerializeField] private ActionBinding actionBinding;   
     private InputAction _holdAction = new InputAction();
     private InputAction _pressAction = new InputAction();
+    
 
     [SerializeField] private int completionPressCount;
     private int _currentPressCount;
@@ -59,6 +60,16 @@ public class TutorialButtonStep : TutorialStepBase
                 leftControllerButtonGuide?.ActivateGuideForButton(ControllerButtonName.Trigger);
                 rightControllerButtonGuide?.ActivateGuideForButton(ControllerButtonName.Grip);
                 rightControllerButtonGuide?.ActivateGuideForButton(ControllerButtonName.Trigger);
+                
+                break;
+            }
+            case ActionBinding.Locomotion:
+            {
+                
+                    
+                _pressAction.AddBinding(XRControllerPath + ControllerButtonName.Primary2DAxis);
+                leftControllerButtonGuide?.ActivateGuideForButton(ControllerButtonName.Primary2DAxis);
+                rightControllerButtonGuide?.ActivateGuideForButton(ControllerButtonName.Primary2DAxis);
                 
                 break;
             }
@@ -120,5 +131,6 @@ public class TutorialButtonStep : TutorialStepBase
 public enum ActionBinding
 {
     DirectGrab,
-    DirectActivate
+    DirectActivate,
+    Locomotion
 }
