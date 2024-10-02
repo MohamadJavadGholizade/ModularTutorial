@@ -2,11 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using MJUtilities;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class TutorialButtonStep : TutorialStepBase
 {
+    [SerializeField] private ControllerButtonGuide leftControllerButtonGuide;
+    [SerializeField] private ControllerButtonGuide rightControllerButtonGuide;
+    
     [SerializeField] private ActionBinding actionBinding;   
     private InputAction _holdAction = new InputAction();
     private InputAction _pressAction = new InputAction();
@@ -21,17 +25,28 @@ public class TutorialButtonStep : TutorialStepBase
     
     private void Awake()
     {
+        
         switch (actionBinding)
         {
             case ActionBinding.DirectGrab:
             {
                 _pressAction.AddBinding(XRControllerPath + ControllerButtonName.Grip);
+                
+                leftControllerButtonGuide?.ActivateGuideForButton(ControllerButtonName.Grip);
+                rightControllerButtonGuide?.ActivateGuideForButton(ControllerButtonName.Grip);
+                
                 break;
             }
             case ActionBinding.DirectActivate:
             {
                 _holdAction.AddBinding(XRControllerPath + ControllerButtonName.Grip);
                 _pressAction.AddBinding(XRControllerPath + ControllerButtonName.Trigger);
+                
+                leftControllerButtonGuide?.ActivateGuideForButton(ControllerButtonName.Grip);
+                leftControllerButtonGuide?.ActivateGuideForButton(ControllerButtonName.Trigger);
+                rightControllerButtonGuide?.ActivateGuideForButton(ControllerButtonName.Grip);
+                rightControllerButtonGuide?.ActivateGuideForButton(ControllerButtonName.Trigger);
+                
                 break;
             }
         }
@@ -65,6 +80,9 @@ public class TutorialButtonStep : TutorialStepBase
 
         _pressAction.started -= OnPressActionStart;
         _pressAction.canceled -= OnPressActionCancel;
+        
+        leftControllerButtonGuide?.DeactivateAllGuides();
+        rightControllerButtonGuide?.DeactivateAllGuides();
     }
 
     private void OnPressActionStart(InputAction.CallbackContext context)

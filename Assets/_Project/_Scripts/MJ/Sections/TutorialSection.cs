@@ -13,7 +13,7 @@ namespace MJUtilities
         [SerializeField] private int currentStepIndex;
         [SerializeField] private List<TutorialStepBase> tutorialStepsList = new List<TutorialStepBase>();
         [SerializeField] private TutorialButtonStep tutorialButtonStep;
-
+        
         private void OnDisable()
         {
             ActionContainer.OnStepComplete -= CompleteCurrentStep;
