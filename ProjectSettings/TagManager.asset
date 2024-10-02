@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Anchor
   - Destroyable
+  - Left Controller
+  - Right Controller
   layers:
   - Default
   - TransparentFX
