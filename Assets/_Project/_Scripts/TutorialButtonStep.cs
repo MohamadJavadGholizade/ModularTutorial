@@ -125,6 +125,17 @@ public class TutorialButtonStep : TutorialStepBase
     {
         _holdActionPressed = false;
     }
+
+    private void SetReferences()
+    {
+        leftControllerButtonGuide = GameObject.FindGameObjectWithTag("Left Controller").GetComponent<ControllerButtonGuide>();
+        rightControllerButtonGuide = GameObject.FindGameObjectWithTag("Right Controller").GetComponent<ControllerButtonGuide>();
+    }
+
+    private void Reset()
+    {
+        SetReferences();
+    }
 }
 
 
@@ -132,5 +143,6 @@ public enum ActionBinding
 {
     DirectGrab,
     DirectActivate,
-    Locomotion
+    Locomotion,
+    LocomotionWalking
 }
