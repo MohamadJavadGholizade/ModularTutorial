@@ -25,6 +25,19 @@ public class TutorialButtonStep : TutorialStepBase
     
     private void Awake()
     {
+        if (_holdAction != null)
+        {
+            _holdAction.started += OnHoldActionStart;
+            _holdAction.canceled += OnHoldActionCancel;
+        }
+
+        _pressAction.started += OnPressActionStart;
+        _pressAction.canceled += OnPressActionCancel;
+    }
+
+    public override void StartStep()
+    {
+        base.StartStep();
         
         switch (actionBinding)
         {
@@ -51,19 +64,6 @@ public class TutorialButtonStep : TutorialStepBase
             }
         }
         
-        if (_holdAction != null)
-        {
-            _holdAction.started += OnHoldActionStart;
-            _holdAction.canceled += OnHoldActionCancel;
-        }
-
-        _pressAction.started += OnPressActionStart;
-        _pressAction.canceled += OnPressActionCancel;
-    }
-
-    public override void StartStep()
-    {
-        base.StartStep();
         _pressAction.Enable();
         _holdAction.Enable();
     }
