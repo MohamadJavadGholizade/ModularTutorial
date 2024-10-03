@@ -5,7 +5,9 @@ using UnityEngine;
 public class Turn_KP : TutorialStepBase
 {
     [SerializeField]
-    private GameObject head; 
+    private GameObject head;
+
+    [SerializeField] private int _maxTurnCount=3;
     private int turnCount = 0; 
     private Quaternion initialRotation; 
 
@@ -28,7 +30,7 @@ public class Turn_KP : TutorialStepBase
             turnCount++; 
             Debug.Log("User has turned " + turnCount + " times.");
             initialRotation = head.transform.rotation;
-            if (turnCount >= 3)
+            if (turnCount >= _maxTurnCount)
             {
                 CompleteStep();
             }

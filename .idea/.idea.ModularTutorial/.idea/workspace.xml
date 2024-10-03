@@ -6,19 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1928c359-f88d-44dc-82e1-d3bbcec46257" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ModularTutorial/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ModularTutorial/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Materials/Controller_Grey.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Materials/Controller_Grey.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Materials/Controller_White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Materials/Controller_White.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Materials/FresnelHighlight.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Materials/FresnelHighlight.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Materials/Telport Anchor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Materials/Telport Anchor.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Shaders/Interactable.shadergraph.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Shaders/Interactable.shadergraph.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Shaders/Unlit_Fresnel.shadergraph.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Shaders/Unlit_Fresnel.shadergraph.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Shaders/Unlit_ShaderGraph.shadergraph.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Shaders/Unlit_ShaderGraph.shadergraph.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Tunneling Vignette/TunnelingVignetteSG.shadergraph.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.3/Starter Assets/Tunneling Vignette/TunnelingVignetteSG.shadergraph.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VRTemplateAssets/Shaders/InteractablePrimitive.shadergraph.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VRTemplateAssets/Shaders/InteractablePrimitive.shadergraph.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scenes/Kimiya/Turn Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scenes/Kimiya/Turn Tutorial.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scenes/Kimiya/Checking Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scenes/Kimiya/Checking Tutorial.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Tutorial [KP]/Turn_KP.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Tutorial [KP]/Turn_KP.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +110,8 @@
       <workItem from="1727772370706" duration="5112000" />
       <workItem from="1727855171547" duration="3762000" />
       <workItem from="1727867896464" duration="364000" />
-      <workItem from="1727935981422" duration="2084000" />
+      <workItem from="1727935981422" duration="5857000" />
+      <workItem from="1727946820515" duration="1410000" />
     </task>
     <servers />
   </component>
